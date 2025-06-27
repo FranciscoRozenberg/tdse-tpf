@@ -1,0 +1,2 @@
+En este documento se detallan los distintos objetivos del Trabajo Práctico Final para la materia Taller de Sistemas Embebidos de la carrera de Ing. Electrónica - FIUBA. También se analizan distintas propuestas para alcanzar las metas enunciadas.
+# Objetivos
