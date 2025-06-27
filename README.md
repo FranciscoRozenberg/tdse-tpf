@@ -29,7 +29,7 @@ Para cumplir los objetivos planteados anteriormente se plantea una serie de subs
 		- Colocado cerca del fondo del tanque de agua para comprobar que el mismo tenga líquido que expulsar y se evite el daño a los mecanismos
 # Croquis del Proyecto
 Se realiza para ilustrar un diagrama simplificado de la estructura y forma física que tendrá. **ESTÁ LA FOTO DE LA PANTALLA DE UNA TABLET QUE MANDARON. CAMBIAR POR EL ARCHIVO DEL DIBUJO**
-![Croquis]('croquis del proyecto.jpg')
+!['croquis del proyecto.jpg'](https://github.com/FranciscoRozenberg/tdse-tpf/blob/main/croquis%20del%20proyecto.jpg)
 # Fuentes y Referencias
 - [Video Explicativo Bombas Peristálticas](https://www.youtube.com/watch?si=b-XAVWznQKpABlHj&v=4RCeaTug2eA&feature=youtu.be)
 - 
