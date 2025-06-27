@@ -1,1 +1,6 @@
-- VL6180
+- Sensor de distancia VL6180
+- Motor Paso a Paso **MODELO DEL MOTOR**
+- NUCLEO-F103RB
+- Display LCD **MODELO DEL DISPLAY**
+- Manguera Atóxica Resistente a la Temperatura 
+- Piezas impresas en 3D
