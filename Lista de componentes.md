@@ -1,4 +1,4 @@
-- Sensor de distancia VL6180
+- [Sensor de distancia VL6180](obsidian://open?vault=tdse-tpf&file=Hojas%20de%20Datos%2FVL6180.PDF)
 - Motor Paso a Paso **MODELO DEL MOTOR**
 - NUCLEO-F103RB
 - Display LCD **MODELO DEL DISPLAY**
