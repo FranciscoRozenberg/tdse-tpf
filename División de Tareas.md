@@ -11,15 +11,15 @@
 		- [ ] Detección de recipiente
 		- [ ] Calcular caudal en función del tiempo
 		- [ ] Crear y guardar perfiles en memoria
+	- [ ]  Display y UI (configuración, menús, etc.)
+		- [ ] Driver display
+		- [ ] Menú de configuración
+			- [ ] Diseño de menú
+			- [ ] Navegación por árbol del menú
+			- [ ] carga de datos de configuración en flash
+		- [ ] Driver encoder
+		- [ ] Función mostrar datos (temperatura actual del agua, perfil, etc.)
 
-- [ ]  Display y UI (configuración, menús, etc.)
-	- [ ] Driver display
-	- [ ] Menú de configuración
-		- [ ] Diseño de menú
-		- [ ] Navegación por árbol del menú
-		- [ ] carga de datos de configuración en flash
-	- [ ] Driver encoder
-	- [ ] Función mostrar datos (temperatura actual del agua, perfil, etc.)
 - [ ] Driver sensor de temperatura
 - [ ] Diseño de la carcasa
 - [ ] Diseño de PCBs
