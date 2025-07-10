@@ -1,0 +1,4 @@
+../app/src/Display_Menu.c:14:6:Opcion_Init	1
+../app/src/Display_Menu.c:21:6:Menu_init	1
+../app/src/Display_Menu.c:30:6:Display_Menu_Init	1
+../app/src/Display_Menu.c:37:6:Display_Menu_Update	2

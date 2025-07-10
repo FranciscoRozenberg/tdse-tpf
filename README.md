@@ -32,5 +32,5 @@ Se realiza para ilustrar un diagrama simplificado de la estructura y forma físi
 !['croquis del proyecto.jpg'](https://github.com/FranciscoRozenberg/tdse-tpf/blob/main/croquis%20del%20proyecto.jpg)
 # Fuentes y Referencias
 - [Video Explicativo Bombas Peristálticas](https://www.youtube.com/watch?si=b-XAVWznQKpABlHj&v=4RCeaTug2eA&feature=youtu.be)
-- [Cómo conectar un encoder](https://done.land/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder/)
-- 
+- [Video Explicativo Encoder](https://done.land/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder/)
+- [Driver para display ssd1306](https://github.com/afiskon/stm32-ssd1306.git)
