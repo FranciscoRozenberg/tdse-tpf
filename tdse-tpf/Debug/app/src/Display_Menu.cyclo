@@ -1,4 +1,8 @@
-../app/src/Display_Menu.c:14:6:Opcion_Init	1
-../app/src/Display_Menu.c:21:6:Menu_init	1
-../app/src/Display_Menu.c:30:6:Display_Menu_Init	1
-../app/src/Display_Menu.c:37:6:Display_Menu_Update	2
+../app/src/Display_Menu.c:71:6:Opcion_Init	1
+../app/src/Display_Menu.c:82:6:Menu_init	1
+../app/src/Display_Menu.c:92:6:Display_Menu_Init	1
+../app/src/Display_Menu.c:99:6:Display_Menu_Lista	2
+../app/src/Display_Menu.c:122:6:Display_Menu_Ppal	1
+../app/src/Display_Menu.c:132:6:Display_Temperatura	5
+../app/src/Display_Menu.c:176:6:Display_Capacidad	2
+../app/src/Display_Menu.c:204:6:Display_Nivel	11

@@ -16,7 +16,7 @@
 		- [X] Driver display
 		- [ ] Menú de configuración
 			- [X] Diseño de menú
-			- [ ] Navegación por árbol del menú
+			- [x] Navegación por árbol del menú
 			- [ ] carga de datos de configuración en flash
 		- [X] Driver encoder
 		- [X] Función mostrar datos (temperatura actua del agua, perfil, etc.)
