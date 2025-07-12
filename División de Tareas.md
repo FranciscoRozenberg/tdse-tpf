@@ -5,7 +5,7 @@
 		- [ ] Función frenar
 		- [ ] Función cebar
 		- [ ] Construcción de la bomba
- - [ ] Driver sensor de temperatura
+  - [ ] Driver sensor de temperatura
 - # Fran
 	- [ ] Driver sensor distancia
 	- [ ] Modo de calibración
@@ -13,14 +13,14 @@
 		- [ ] Calcular caudal en función del tiempo
 		- [ ] Crear y guardar perfiles en memoria
 	- [ ]  Display y UI (configuración, menús, etc.)
-		- [ ] Driver display
+		- [X] Driver display
 		- [ ] Menú de configuración
-			- [ ] Diseño de menú
+			- [X] Diseño de menú
 			- [ ] Navegación por árbol del menú
 			- [ ] carga de datos de configuración en flash
-		- [ ] Driver encoder
-		- [ ] Función mostrar datos (temperatura actual del agua, perfil, etc.)
+		- [X] Driver encoder
+		- [X] Función mostrar datos (temperatura actua del agua, perfil, etc.)
 
 - # Anto
- - [ ] Diseño de la carcasa
- - [ ] Diseño de PCBs
+  - [ ] Diseño de la carcasa
+  - [ ] Diseño de PCBs
