@@ -1,10 +1,11 @@
-- # Guido
+- # Guido y Kar
 	- [ ] Bomba y Caudalímetro
 		- [ ] Calcular caudal en función de pasos
 		- [ ] Escrutar pasos
 		- [ ] Función frenar
 		- [ ] Función cebar
 		- [ ] Construcción de la bomba
+ - [ ] Driver sensor de temperatura
 - # Fran
 	- [ ] Driver sensor distancia
 	- [ ] Modo de calibración
@@ -20,9 +21,6 @@
 		- [ ] Driver encoder
 		- [ ] Función mostrar datos (temperatura actual del agua, perfil, etc.)
 
-- [ ] Driver sensor de temperatura
-- [ ] Diseño de la carcasa
-- [ ] Diseño de PCBs
-
-- # Kar
 - # Anto
+ - [ ] Diseño de la carcasa
+ - [ ] Diseño de PCBs
