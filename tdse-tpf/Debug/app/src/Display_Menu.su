@@ -1,8 +1,8 @@
-../app/src/Display_Menu.c:71:6:Opcion_Init	24	static
-../app/src/Display_Menu.c:82:6:Menu_init	32	static
-../app/src/Display_Menu.c:92:6:Display_Menu_Init	8	static
-../app/src/Display_Menu.c:99:6:Display_Menu_Lista	40	static
-../app/src/Display_Menu.c:122:6:Display_Menu_Ppal	32	static
-../app/src/Display_Menu.c:132:6:Display_Temperatura	56	static
-../app/src/Display_Menu.c:176:6:Display_Capacidad	40	static
-../app/src/Display_Menu.c:204:6:Display_Nivel	48	static
+../app/src/Display_Menu.c:69:6:Opcion_Init	24	static
+../app/src/Display_Menu.c:80:6:Menu_init	32	static
+../app/src/Display_Menu.c:90:6:Display_Menu_Init	8	static
+../app/src/Display_Menu.c:97:6:Display_Menu_Lista	40	static
+../app/src/Display_Menu.c:120:6:Display_Menu_Ppal	32	static
+../app/src/Display_Menu.c:130:6:Display_Temperatura	56	static
+../app/src/Display_Menu.c:174:6:Display_Capacidad	40	static
+../app/src/Display_Menu.c:202:6:Display_Nivel	72	static

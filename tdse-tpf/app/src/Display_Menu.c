@@ -1,18 +1,16 @@
+// Includes
 #include "app.h"
 #include "main.h"
-
 #include "ssd1306.h"
 #include "ssd1306_fonts.h"
 #include "ssd1306_tests.h"
+
 #include "Display_Menu.h"
-#include <stdbool.h>
+
 #include <string.h>
 #include <stdio.h>
 
-#define  ALTO_LETRA_MEDIANA 18
-#define LARGO_LETRA_MEDIANA 11
-#define  ALTO_LETRA_GRANDE 24
-#define LARGO_LETRA_GRANDE 16
+// Definiciones Internas
 #define RANGO_TEMPERATURA_ACEPTABLE 10
 
 // Sprites para display (solo uso interno)____________________________________________________________
@@ -201,7 +199,7 @@ void Display_Capacidad(void* Opcion_Data)
 
 }
 
-void Display_Nivel(void* Opcion_Data, uint16_t Nivel_De_Agua)
+void Display_Nivel(void* Opcion_Data, uint16_t Nivel_De_Agua, unidad_display_t Unidad)
 {
 	Opcion_t* Display_Data = (Opcion_t*) Opcion_Data;
 	uint16_t Nivel_En_Porcentaje = 100 * Nivel_De_Agua/ (*( (uint16_t *)Display_Data->Valor));
@@ -211,49 +209,51 @@ void Display_Nivel(void* Opcion_Data, uint16_t Nivel_De_Agua)
 
 
 	uint16_t estado = Nivel_En_Porcentaje - Nivel_En_Porcentaje%20; //Nomas cambia de a 20 puntos
-	char buffer[] = {"100 %%"};
+	char buffer[] = {" 100 %% "};
+	char* formatos[] = {"%hu ml", "%hu %%", "0%hu %%", "00%hu %%"};
+	uint16_t Niveles[] = {Nivel_De_Agua, Nivel_En_Porcentaje};
 
 	switch (estado)
 	{
 	case 100:
-		sprintf(buffer, "%hu %%", Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_100_16x24, 16,24, White);
 		break;
 
 	case 80:
-		sprintf(buffer, "0%hu %%", Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[2*Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_80_16x24, 16,24, White);
 		break;
 
 	case 60:
-		sprintf(buffer, "0%hu %%", Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[2*Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_60_16x24, 16,24, White);
 		break;
 
 	case 40:
-		sprintf(buffer, "0%hu %%", Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[2*Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_40_16x24, 16,24, White);
 		break;
 
 	case 20:
-		sprintf(buffer, "0%hu %%", Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[2*Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_20_16x24, 16,24, White);
 		break;
 
 	case 0:
-		char* Template []= {"00%hu %%","0%hu %%"};
+		//char* Template []= {"00%hu %%","0%hu %%"};
 		bool Mayor_Que_10 = Nivel_En_Porcentaje - Nivel_En_Porcentaje%10;
-		sprintf(buffer, (Template[Mayor_Que_10]), Nivel_En_Porcentaje );
+		sprintf(buffer, formatos[(2+!Mayor_Que_10)*Unidad], Niveles[Unidad] );
 		ssd1306_SetCursor( SSD1306_WIDTH/2 - (2.5*LARGO_LETRA_GRANDE), SSD1306_HEIGHT/2);
 		ssd1306_WriteString(buffer, Font_16x24, White);
 		ssd1306_DrawBitmap(SSD1306_WIDTH/2 + 2.5*LARGO_LETRA_GRANDE + 2, SSD1306_HEIGHT/2, Sprite_Termo_0_16x24, 16,24, White);

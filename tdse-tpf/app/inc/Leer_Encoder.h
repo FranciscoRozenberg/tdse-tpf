@@ -9,7 +9,10 @@ extern "C" {
 // Includes
 #include <stdbool.h>
 
-// Definiciones
+// Definiciones Externas
+#define VALOR_ENCODER_CERO 	0
+#define VALOR_ENCODER_FINAL	20
+
 
 typedef struct
 {

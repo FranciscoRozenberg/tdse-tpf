@@ -1,5 +1,6 @@
 // Includes
 #include <stdio.h>
+#include <stdbool.h>
 
 # include "main.h"
 # include "app.h"
@@ -88,9 +89,11 @@ unsigned char* Iconos_Menu_Ppal[] = {temperaturas_43x43, mate_43x43, termo_43x43
 
 Menu_t Menu_Ppal;
 
-Estado_Menu_Ppal_t Posicion_Menu;
 Navegacion_Menu_t Navegacion_Menu;
-
+Estado_Menu_Ppal_t Posicion_Menu;
+Estado_Menu_Ppal_t Posicion_En_Cambio;
+bool Menu_Es_No_Ppal;
+uint16_t Ultima_Posicion_Del_Encoder;
 
 //________________VARIABLES DE PRUEBA (BORRAR O COMENTAR EN PRODUCTO FINAL)________________
 uint16_t Temperatura_Medida_Por_Sensor = 90;
@@ -105,7 +108,7 @@ void app_init(void)
 
 	// INICIALIZA ENCODER
 	Leer_Encoder_Init(&Encoder, &htim1);
-
+	Ultima_Posicion_Del_Encoder = Encoder.Posicion;
 	//INICIALIZA MENU Y DISPLAY
 	ssd1306_Init();
 	for (int i = 0; i < CANTIDAD_DE_OPCIONES_MENU_PPAL; i++)
@@ -114,42 +117,57 @@ void app_init(void)
 		}
 
 	Menu_init(&Menu_Ppal, Etiqueta_De_Menu, Opciones_Menu_Ppal, CANTIDAD_DE_OPCIONES_MENU_PPAL);
-	Navegacion_Menu = MENU_PPAL;
+	Menu_Es_No_Ppal = true;
 
 }
 
 void app_update(void)
 {
-
 	Leer_Encoder_Update(&Encoder);
 	Posicion_Menu = (Encoder.Posicion)%3;
 
+
 	if(!HAL_GPIO_ReadPin(GPIOC, B1_Pin))
 	{
-		Navegacion_Menu = !Navegacion_Menu;
+		Menu_Es_No_Ppal = !Menu_Es_No_Ppal;
+		Posicion_En_Cambio = Posicion_Menu;
+
 	}
+	Navegacion_Menu = Menu_Es_No_Ppal*(Posicion_Menu+1);
+
 
 	switch(Navegacion_Menu)
 	{
 	case MENU_PPAL:
 		Display_Menu_Ppal((Menu_Ppal.Opciones) + Posicion_Menu);
 		break;
-	case MENU_INTERNO:
-		switch(Posicion_Menu)
+	case MENU_TEMPERATURA:
+		if (Posicion_Menu != Posicion_En_Cambio)
 		{
-		case TEMPERATURA:
-			Display_Temperatura(Menu_Ppal.Opciones, Temperatura_Medida_Por_Sensor);
+			*((uint16_t*)(Menu_Ppal.Opciones->Valor)) += (Encoder.Posicion - Ultima_Posicion_Del_Encoder);
+			Display_Temperatura(Menu_Ppal.Opciones, *((uint16_t*)(Menu_Ppal.Opciones)->Valor));
 			break;
-		case CAPACIDAD:
+		}else{Display_Temperatura(Menu_Ppal.Opciones, Temperatura_Medida_Por_Sensor);break;}
+	case MENU_CAPACIDAD:
+		if (Posicion_Menu != Posicion_En_Cambio)
+		{
+			*( (uint16_t*)( ( (Menu_Ppal.Opciones) +1) ->Valor) ) += (Encoder.Posicion - Ultima_Posicion_Del_Encoder);
 			Display_Capacidad((Menu_Ppal.Opciones)+1);
 			break;
-		case NIVEL:
-			Display_Nivel((Menu_Ppal.Opciones)+2, Nivel_De_Agua_Medido);
-			break;
+		}else{Display_Capacidad((Menu_Ppal.Opciones)+1);break;}
 		break;
-		}
-	}
+	case MENU_NIVEL:
+		if (Posicion_Menu != Posicion_En_Cambio)
+		{
+			*((uint16_t*)(((Menu_Ppal.Opciones)+2)->Valor)) += (Encoder.Posicion - Ultima_Posicion_Del_Encoder);
+			Display_Nivel((Menu_Ppal.Opciones)+2, *((uint16_t*)(((Menu_Ppal.Opciones)+2)->Valor)), LITROS);
+			break;
+		}else{Display_Nivel((Menu_Ppal.Opciones)+2, Nivel_De_Agua_Medido, PORCENTAJE);break;}
+		break;
+	break;
 
+	}
+	Ultima_Posicion_Del_Encoder = Encoder.Posicion;
 	ssd1306_UpdateScreen();
 }
 
@@ -169,7 +187,7 @@ void Probar_Capacidad(void)
 {
 	if(Nivel_De_Agua_Medido > 00)
 		{
-			Display_Nivel((Menu_Ppal.Opciones)+2, Nivel_De_Agua_Medido);
+			Display_Nivel((Menu_Ppal.Opciones)+2, Nivel_De_Agua_Medido, PORCENTAJE);
 			ssd1306_UpdateScreen();
 			HAL_Delay(1000);
 			Nivel_De_Agua_Medido-=0.1* *((uint16_t *)((Menu_Ppal.Opciones)+2)->Valor); //10% del nivel de agua total

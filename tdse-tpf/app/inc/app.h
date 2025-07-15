@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-// Includes
+// Include
 #include <stdbool.h>
 
 // Definiciones
@@ -20,7 +20,9 @@ typedef enum
 typedef enum
 {
 	MENU_PPAL = 0,
-	MENU_INTERNO = 1
+	MENU_TEMPERATURA = 1,
+	MENU_CAPACIDAD = 2,
+	MENU_NIVEL = 3
 }Navegacion_Menu_t;
 
 // Declaro funciones de app

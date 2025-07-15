@@ -4,13 +4,10 @@
 #include "app.h"
 
 // Definiciones Internas
-#define VALOR_ENCODER_CERO 	0
-#define VALOR_ENCODER_MEDIO 1
-#define VALOR_ENCODER_FINAL	20
-#define ENCODER_EN_ESPERA 	2
 
+#define VALOR_ENCODER_MEDIO 1
+#define ENCODER_EN_ESPERA 	2
 # define PERIODO 65535
-# define POSICIONES_ENCODER 21
 # define VALOR_DE_UN_PASO 2
 # define CICLOS_DE_ESPERA 5
 
@@ -69,8 +66,6 @@ void Leer_Encoder_Update(void *param)
 			Encoder->Ultimo_Valor = Cuenta_Cruda;
 			break;
 		}
-
-//-HASTA ACA LLEGUE--------------------------------------------
 	case VALOR_ENCODER_CERO :
 			if (Cuenta_Cruda >= Encoder->Ultimo_Valor + VALOR_DE_UN_PASO)
 			{

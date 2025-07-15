@@ -1,4 +1,4 @@
-../app/src/app.c:102:6:app_init	2
-../app/src/app.c:121:6:app_update	8
-../app/src/app.c:157:6:Probar_Temperatura	2
-../app/src/app.c:168:6:Probar_Capacidad	2
+../app/src/app.c:105:6:app_init	2
+../app/src/app.c:124:6:app_update	9
+../app/src/app.c:175:6:Probar_Temperatura	2
+../app/src/app.c:186:6:Probar_Capacidad	2
